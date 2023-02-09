@@ -49,7 +49,7 @@ This project uses Firebase hosting.
 
 ### Userstories
 
-To follow the scrum development method we have made a list of userstories that we then break into issues that you can find in the issueboard. The list is as follows: 
+To follow the scrum development method we have made a list of userstories that we then break into issues that you can find in the [issueboard](https://gitlab.stud.idi.ntnu.no/tdt4140-2023/landsby-2/gruppe-28/imdbooks/-/boards). The list is as follows: 
 
 1. As a user i want a homepage containing news, toplists, favorites and books soon to be realesed in order to have a good user experience and to get the most out of the website.
 2. As an administrator i want to be able to add new books and authors to give users the possibility to discover new reading material.
