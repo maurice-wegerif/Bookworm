@@ -61,3 +61,4 @@ To follow the scrum development method we have made a list of userstories that w
 8. As a user i want to see the rating of a book based on the average rating given in all the reviews in order to get a sense of the books quality.
 9. As a user i want a toplist made by a realiable source such as New York Times to get inspiration on what i should read next. 
 10. As the product owner i want to be able to advertise on the website in order to make money that can then be used to finance the website. 
+11. As a user I want to be able to see a book-page, with details like a synopsis, ratings, publishing date and number of pages. 
