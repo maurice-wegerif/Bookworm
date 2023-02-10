@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import { PageLayout } from "./layouts/pageLayout";
-import { Home, Login, Register } from "./pages";
+import { AddBook, Home, Login, Register } from "./pages";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,6 +12,7 @@ export const router = createBrowserRouter(
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/add-book" element={<AddBook />} />
     </Route>
   )
 );
