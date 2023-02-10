@@ -25,7 +25,7 @@ export const BookList = () => {
       {books.map((book) => (
         <div
           key={book.id}
-          className="bg-pink-100 w-48 p-4 shadow rounded transition-all hover:scale-105 cursor-pointer m-auto"
+          className="bg-white w-48 p-4 shadow rounded transition-all hover:scale-105 cursor-pointer m-auto"
         >
           <h2 className="font-bold">{book.title}</h2>
           <span className="text-gray-500 text-sm">{book.author}</span>
