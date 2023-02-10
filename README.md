@@ -24,6 +24,7 @@
 This project uses the [Yarn](https://yarnpkg.com/) package manager.
 
 - [firebase](https://yarnpkg.com/package/firebase)
+- [react-router](https://reactrouter.com/en/main)
 
 ### Installation
 
