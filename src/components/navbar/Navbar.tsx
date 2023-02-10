@@ -1,6 +1,7 @@
 import { signOut } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
+import { Button } from "../button";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -28,12 +29,17 @@ export const Navbar = () => {
         </div>
         <div className="absolute top-5 right-5">
           {auth.currentUser ? (
-            <button
-              onClick={handleLogout}
-              className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-            >
-              Sign Out
-            </button>
+            <div className="flex">
+              <Link to="/add-book">
+                <Button label="+" clickHandler={() => console.log("...")} />
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+              >
+                Sign Out
+              </button>
+            </div>
           ) : (
             <>
               <Link
