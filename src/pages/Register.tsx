@@ -32,10 +32,10 @@ export const Register = () => {
           <img
             className="mx-auto h-12 w-auto"
             src="https://edit.org/photos/images/cat/book-covers-big-2019101610.jpg-1300.jpg"
-            alt="imdbooks logo"
+            alt="bookworm logo"
           />
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            imdbooks🔥
+            bookworm📚
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             take a good book to bed with you... books do not snore

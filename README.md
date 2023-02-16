@@ -1,4 +1,4 @@
-# IMDbooks
+# Bookworm
 
 [IMDbooks](https://imdbooks.web.app) is a web applicaiton used to rate books.
 
