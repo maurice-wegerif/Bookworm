@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   Route,
 } from "react-router-dom";
+import { SearchPage } from "./components/searchPage";
 import { PageLayout } from "./layouts/pageLayout";
 import { AddBook, Home, Login, Register } from "./pages";
 
@@ -13,6 +14,7 @@ export const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/add-book" element={<AddBook />} />
+      <Route path="/search" element={<SearchPage />} />
     </Route>
   )
 );
