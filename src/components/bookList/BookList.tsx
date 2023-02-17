@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Book } from "../../helpers/types";
 import { collection, getDocs } from "firebase/firestore/lite";
 import { db } from "../../firebase";
+import { DataContext } from "../../helpers/DataContext";
 
 export const BookList = () => {
-  const [books, setBooks] = useState<Book[]>([]);
-
-  const fetchPost = async () => {
-    await getDocs(collection(db, "books")).then((querySnapshot) => {
-      const bookData = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      })) as Book[];
-      setBooks(bookData);
-    });
-  };
-
-  useEffect(() => {
-    fetchPost();
-  }, []);
+  const { books } = useContext(DataContext);
 
   return (
     <div className="flex flex-wrap max-w-3xl m-auto gap-8">
