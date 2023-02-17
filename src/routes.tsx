@@ -6,6 +6,7 @@ import {
 import { SearchPage } from "./components/searchPage";
 import { PageLayout } from "./layouts/pageLayout";
 import { AddBook, Home, Login, Register } from "./pages";
+import { BookPage } from "./pages/BookPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +16,7 @@ export const router = createBrowserRouter(
       <Route path="/register" element={<Register />} />
       <Route path="/add-book" element={<AddBook />} />
       <Route path="/search" element={<SearchPage />} />
+      <Route path="/book/:id" element={<BookPage />} />
     </Route>
   )
 );

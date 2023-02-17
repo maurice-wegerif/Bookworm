@@ -8,9 +8,11 @@ import { router } from "./routes";
 
 export const App = () => {
   const [books, setBooks] = useState<Book[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const setBookData = (books: Book[]) => setBooks(books);
 
   const fetchPost = async () => {
+    setIsLoading(true);
     await getDocs(collection(db, "books")).then((querySnapshot) => {
       const bookData = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
@@ -18,6 +20,7 @@ export const App = () => {
       })) as Book[];
       setBooks(bookData);
     });
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -25,7 +28,7 @@ export const App = () => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ books, setBooks: setBookData }}>
+    <DataContext.Provider value={{ books, setBooks: setBookData, isLoading }}>
       <RouterProvider router={router} />
     </DataContext.Provider>
   );
