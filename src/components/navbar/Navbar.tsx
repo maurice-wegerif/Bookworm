@@ -2,6 +2,8 @@ import { signOut } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { Button } from "../button";
+import { RxMagnifyingGlass } from 'react-icons/rx';
+
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -27,9 +29,14 @@ export const Navbar = () => {
             📕🐛🔥
           </Link>
         </div>
-        <div className="absolute top-5 right-5">
+        <div className="absolute top-5 right-5 flex">
+          <div className="flex px-5 items-center">
+            <Link to="/search" className="px-2 py-2 ml-8 mr-3 w-full items-center hover:bg-gray-200 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2t">
+                  <RxMagnifyingGlass className="text-indigo-600 text-2xl hover:text-indigo-700"/>
+            </Link>
+          </div>
           {auth.currentUser ? (
-            <div className="flex">
+            <div className="flex items-center">
               <Link to="/add-book">
                 <Button label="+" clickHandler={() => console.log("...")} />
               </Link>
@@ -44,7 +51,7 @@ export const Navbar = () => {
             <>
               <Link
                 to="/login"
-                className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+                className="px-4 py-2 whitespace-nowrap flex items-center text-base hover:bg-gray-200 font-medium text-gray-500 hover:text-gray-900 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2t"
               >
                 Sign in
               </Link>
