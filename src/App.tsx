@@ -8,8 +8,10 @@ import { router } from "./routes";
 
 export const App = () => {
   const [books, setBooks] = useState<Book[]>([]);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const setBookData = (books: Book[]) => setBooks(books);
+  const setIsAdminData = (admin: boolean) => setIsAdmin(admin);
 
   const fetchPost = async () => {
     setIsLoading(true);
@@ -28,7 +30,15 @@ export const App = () => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ books, setBooks: setBookData, isLoading }}>
+    <DataContext.Provider
+      value={{
+        books,
+        setBooks: setBookData,
+        isLoading,
+        isAdmin,
+        setIsAdmin: setIsAdminData,
+      }}
+    >
       <RouterProvider router={router} />
     </DataContext.Provider>
   );
