@@ -1,16 +1,28 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { OtherHero } from "../components/hero";
 import { Hero } from "../components/hero/Hero";
 import { auth } from "../firebase";
+import { DataContext } from "../helpers/DataContext";
 
 export const Home = () => {
+  const { setIsAdmin } = useContext(DataContext);
+
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const uid = user.uid;
-        console.log("uid", uid);
+        await user
+          .getIdTokenResult()
+          .then((idTokenResult) => {
+            if (!!idTokenResult.claims.admin) {
+              setIsAdmin(true);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       } else {
+        setIsAdmin(false);
         console.log("user is logged out");
       }
     });
