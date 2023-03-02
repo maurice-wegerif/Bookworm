@@ -1,6 +1,5 @@
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { useContext, useEffect } from "react";
-import { OtherHero } from "../components/hero";
 import { Hero } from "../components/hero/Hero";
 import { auth } from "../firebase";
 import { DataContext } from "../helpers/DataContext";
@@ -28,5 +27,9 @@ export const Home = () => {
     });
   }, []);
 
-  return <main>{auth.currentUser ? <Hero /> : <OtherHero />}</main>;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 };
