@@ -10,8 +10,8 @@ export const BookList = () => {
       {books.map((book) => (
         <Link to={`/book/${book.id}`} key={book.id}>
           <div className="bg-white w-48 p-4 shadow rounded transition-all hover:scale-105 cursor-pointer m-auto">
-            <h2 className="font-bold">{book.title}</h2>
-            <span className="text-gray-500 text-sm">{book.author}</span>
+            <h2 className="font-serif font-bold">{book.title}</h2>
+            <span className="font-extralight text-gray-500 text-sm">{book.author}</span>
             <img src={book.imageUrl} alt={book.title} />
           </div>
         </Link>

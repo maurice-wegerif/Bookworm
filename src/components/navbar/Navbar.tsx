@@ -25,9 +25,14 @@ export const Navbar = () => {
   return (
     <nav className="divide-y-2 divide-gray-50 bg-white shadow ring-1 ring-black ring-opacity-5 relative">
       <div className="px-5 pt-5 pb-6">
+        <div className="absolute right-1/3 left-1/3 flex justify-center items-center">
+          <Link to="/" className="font-serif text-5xl">
+            Bookworm
+          </Link>
+        </div>
         <div className="flex items-center justify-between">
           <Link to="/" className="text-4xl">
-            📕🐛🔥
+            🦋
           </Link>
         </div>
         <div className="absolute top-5 right-5 flex">
