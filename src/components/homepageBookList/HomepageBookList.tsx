@@ -1,18 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../../helpers/DataContext";
 import { Link } from "react-router-dom";
+import { Book } from "../../helpers/types";
 
 interface HomepageBookListProps {
-  category: string;
+  books: Book[];
+  heading: String;
 }
 
-export const HomepageBookList = ({ category }: HomepageBookListProps) => {
-  const { books } = useContext(DataContext);
-
+export const HomepageBookList = ({ books, heading }: HomepageBookListProps) => {
   return (
     <div className="mb-8">
       <h2 className=" leading-tight text-3xl text-gray-900 font-medium mt-0 mb-2 pt-6 font-serif">
-        {category}
+        {heading}
       </h2>
       <hr className="h-px mt-2 mb-4 bg-gray-300 border-0" />
       <div className="flex overflow-x-scroll pb-5 m-auto gap-8 hide-scroll-bar">
