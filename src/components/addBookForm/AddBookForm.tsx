@@ -9,6 +9,7 @@ export const AddBookForm = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [cover, setCover] = useState("");
+  const [genres, setGenre] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -18,6 +19,7 @@ export const AddBookForm = () => {
         title: title,
         author: author,
         imageUrl: cover,
+        genre: genres.split("/"),
       });
       navigate("/");
     } else {
@@ -33,6 +35,9 @@ export const AddBookForm = () => {
       return false;
     }
     if (cover.length < 5) {
+      return false;
+    }
+    if (genres.length === 0) {
       return false;
     }
 
@@ -71,6 +76,16 @@ export const AddBookForm = () => {
           onChange={(evt) => {
             setError("");
             setCover(evt.currentTarget.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Genres separated with /"
+          className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+          value={genres}
+          onChange={(evt) => {
+            setError("");
+            setGenre(evt.currentTarget.value);
           }}
         />
         <Button label="Add book" clickHandler={clickHandler} />
