@@ -4,6 +4,5 @@ export interface Book {
   author: string;
   imageUrl: string;
   genres: string[];
-  category?: string;
   date?: Date;
 }
