@@ -1,7 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { Book } from "../../helpers/types";
-import { collection, getDocs } from "firebase/firestore/lite";
-import { db } from "../../firebase";
 import { DataContext } from "../../helpers/DataContext";
 import { Link } from "react-router-dom";
 
