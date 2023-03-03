@@ -8,6 +8,7 @@ import { router } from "./routes";
 
 export const App = () => {
   const [books, setBooks] = useState<Book[]>([]);
+  const [genres, setGenres] = useState<string[]>([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const setBookData = (books: Book[]) => setBooks(books);
@@ -29,6 +30,26 @@ export const App = () => {
     fetchPost();
   }, []);
 
+  useEffect(() => {
+    getAndSetGenres();
+  }, [books]);
+
+  const getAndSetGenres = () => {
+    const genresArray: string[] = [];
+    for (let bookIndex = 0; bookIndex < books.length; bookIndex++) {
+      for (
+        let genreIndex = 0;
+        genreIndex < books[bookIndex].genres.length;
+        genreIndex++
+      ) {
+        if (!genresArray.includes(books[bookIndex].genres[genreIndex])) {
+          genresArray.push(books[bookIndex].genres[genreIndex]);
+        }
+      }
+    }
+    setGenres(genresArray);
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -37,6 +58,8 @@ export const App = () => {
         isLoading,
         isAdmin,
         setIsAdmin: setIsAdminData,
+        genres: genres,
+        setGenres: setGenres,
       }}
     >
       <RouterProvider router={router} />
