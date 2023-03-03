@@ -1,18 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../helpers/DataContext";
+import { GenreInput } from "./GenreInput";
 
 interface SearchListProps {
   searchInput: string;
+  genreInput: string;
 }
 
-export const SearchList = ({ searchInput }: SearchListProps) => {
+export const SearchList = ({ searchInput, genreInput }: SearchListProps) => {
   const { books } = useContext(DataContext);
 
   const filteredBooks = books.filter(
     (book) =>
-      book.title.toLowerCase().includes(searchInput.toLowerCase()) ||
-      book.author.toLowerCase().includes(searchInput.toLowerCase())
+      (book.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+        book.author.toLowerCase().includes(searchInput.toLowerCase())) &&
+      (book.genres.includes(genreInput) || genreInput === "no genre")
   );
 
   return (

@@ -13,7 +13,7 @@ export const SearchInput = ({
   setError,
   setSearchInput,
 }: SearchInputProps) => (
-  <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+  <div>
     <h1>Search for a book, author or genre</h1>
     <form className="flex w-95/100 relative center">
       <input
