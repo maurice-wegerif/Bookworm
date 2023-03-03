@@ -19,7 +19,7 @@ export const AddBookForm = () => {
         title: title,
         author: author,
         imageUrl: cover,
-        genre: genres.split("/"),
+        genres: genres.split("/"),
       });
       navigate("/");
     } else {
