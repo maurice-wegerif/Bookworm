@@ -63,3 +63,5 @@ To follow the scrum development method we have made a list of userstories that w
 9. As a user i want a toplist made by a realiable source such as New York Times to get inspiration on what i should read next. 
 10. As the product owner i want to be able to advertise on the website in order to make money that can then be used to finance the website. 
 11. As a user I want to be able to see a book-page, with details like a synopsis, ratings, publishing date and number of pages. 
+12. As a user i want a darkmode feature so that i can use the app in lowlight environments.
+13. As a user i want to be able to see ratings from other sources such as goodreads to get more perspectives on a books quality. 
