@@ -10,7 +10,7 @@ interface GenreInputProps {
 export const GenreInput = ({ genreInput, setGenreInput }: GenreInputProps) => {
   const { genres } = useContext(DataContext);
   return (
-    <div className="flex flex-wrap max-w-3xl m-auto gap-4 pt-6">
+    <div className="flex flex-wrap max-w-3xl m-auto gap-4">
       <select
         className="h-9 rounded border-gray-300"
         onChange={(evt) => {

@@ -22,21 +22,21 @@ export const Login = () => {
             src="https://edit.org/photos/images/cat/book-covers-big-2019101610.jpg-1300.jpg"
             alt="bookworm logo"
           />
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-text">
             bookworm🦋
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-sm text-lightText">
             take a good book to bed with you... books do not snore
           </p>
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="bg-surface py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form className="space-y-6" action="#" method="POST">
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-lightText"
                 >
                   Email address
                 </label>
@@ -47,7 +47,7 @@ export const Login = () => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-lightText shadow-sm bg-background text-text focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     value={input.email}
                     onChange={(evt) =>
                       setInput({ ...input, email: evt.target.value })
@@ -59,7 +59,7 @@ export const Login = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-lightText"
                 >
                   Password
                 </label>
@@ -70,7 +70,7 @@ export const Login = () => {
                     type="password"
                     autoComplete="current-password"
                     required
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-lightText bg-background text-text shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     value={input.password}
                     onChange={(evt) =>
                       setInput({ ...input, password: evt.target.value })
@@ -89,7 +89,7 @@ export const Login = () => {
                   />
                   <label
                     htmlFor="remember-me"
-                    className="ml-2 block text-sm text-gray-900"
+                    className="ml-2 block text-sm text-lightText"
                   >
                     Remember me
                   </label>
@@ -98,7 +98,7 @@ export const Login = () => {
                 <div className="text-sm">
                   <Link
                     to="/register"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                    className="font-medium text-cta hover:text-ctaHover"
                   >
                     Register
                   </Link>
@@ -108,7 +108,7 @@ export const Login = () => {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="flex w-full justify-center rounded-md border border-transparent bg-cta py-2 px-4 text-sm font-medium text-ctaText shadow-sm hover:bg-ctaHover focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   onClick={(evt) => {
                     evt.preventDefault();
                     handleLoginClick();

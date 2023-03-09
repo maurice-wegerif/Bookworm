@@ -10,7 +10,10 @@ export const SearchPage = () => {
 
   return (
     <div>
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md flex ">
+      <h1 className="text-text text-center">
+        Search for a book, author or genre
+      </h1>
+      <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-md flex ">
         <SearchInput
           searchInput={searchInput}
           error={error}

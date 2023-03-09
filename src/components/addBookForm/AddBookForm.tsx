@@ -4,6 +4,7 @@ import { db } from "../../firebase";
 import { Button } from "../button";
 import uuid from "react-uuid";
 import { useNavigate } from "react-router-dom";
+import { InputField } from "./InputField";
 
 export const AddBookForm = () => {
   const [title, setTitle] = useState("");
@@ -46,44 +47,36 @@ export const AddBookForm = () => {
 
   return (
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <h1>Add book</h1>
+      <h1 className="text-text text-xl mb-4">Add book</h1>
       <div className="flex flex-col gap-4">
-        <input
-          type="text"
+        <InputField
           placeholder="Title"
-          className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
           value={title}
-          onChange={(evt) => {
+          changeHandler={(evt) => {
             setError("");
             setTitle(evt.currentTarget.value);
           }}
         />
-        <input
-          type="text"
+        <InputField
           placeholder="Author"
-          className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
           value={author}
-          onChange={(evt) => {
+          changeHandler={(evt) => {
             setError("");
             setAuthor(evt.currentTarget.value);
           }}
         />
-        <input
-          type="text"
+        <InputField
           placeholder="Cover"
-          className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
           value={cover}
-          onChange={(evt) => {
+          changeHandler={(evt) => {
             setError("");
             setCover(evt.currentTarget.value);
           }}
         />
-        <input
-          type="text"
+        <InputField
           placeholder="Genres separated with /"
-          className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
           value={genres}
-          onChange={(evt) => {
+          changeHandler={(evt) => {
             setError("");
             setGenre(evt.currentTarget.value);
           }}

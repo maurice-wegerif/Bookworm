@@ -10,7 +10,7 @@ export const Hero = () => {
   const romanBooks = books.filter((book) => book.genres.includes("roman"));
 
   return (
-    <div className="bg-white py-24 px-6 sm:py-6 lg:px-8">
+    <div className="bg-surface py-24 px-6 sm:py-6 lg:px-8">
       <HomepageBookList heading="Best from fantasy" books={fantasyBooks} />
       <HomepageBookList heading="Best from fiction" books={fictionBooks} />
       <HomepageBookList heading="Best from roman" books={romanBooks} />

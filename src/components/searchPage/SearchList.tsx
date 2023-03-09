@@ -24,7 +24,7 @@ export const SearchList = ({ searchInput, genreInput }: SearchListProps) => {
         <Link
           to={`/book/${book.id}`}
           key={book.id}
-          className="bg-white w-full p-4 shadow rounded transition-all cursor-pointer m-auto flex flex-row hover:bg-gray-50"
+          className="bg-surface w-full p-4 shadow rounded transition-all cursor-pointer m-auto flex flex-row hover:bg-secondaryBackground"
         >
           <div className="basis-1/4">
             <img
@@ -34,8 +34,8 @@ export const SearchList = ({ searchInput, genreInput }: SearchListProps) => {
             />
           </div>
           <div className="basis-1/2">
-            <h2 className="font-bold">{book.title}</h2>
-            <span className="text-gray-500 text-sm">{book.author}</span>
+            <h2 className="font-bold text-text">{book.title}</h2>
+            <span className="text-lightText text-sm">{book.author}</span>
           </div>
         </Link>
       ))}

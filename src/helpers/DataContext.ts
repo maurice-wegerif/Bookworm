@@ -9,6 +9,8 @@ interface State {
   isLoading: boolean;
   isAdmin: boolean;
   setIsAdmin: (admin: boolean) => void;
+  darkmode: boolean;
+  setDarkmode: (darkmode: boolean) => void;
 }
 
 const rootState: State = {
@@ -19,6 +21,8 @@ const rootState: State = {
   isLoading: false,
   isAdmin: false,
   setIsAdmin: () => {},
+  darkmode: false,
+  setDarkmode: () => {}
 };
 
 export const DataContext = createContext<State>(rootState);
