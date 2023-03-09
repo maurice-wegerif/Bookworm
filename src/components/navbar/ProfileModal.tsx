@@ -39,13 +39,13 @@ export const ProfileModal = ({
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-surface shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           {auth.currentUser && (
             <div className="px-4 py-3">
-              <p className="text-sm">
+              <p className="text-sm text-lightText">
                 Logged in {isAdmin ? "administrator" : "regular user"}
               </p>
-              <p className="truncate text-sm font-medium text-gray-900">
+              <p className="truncate text-sm font-medium text-text">
                 {auth.currentUser.email}
               </p>
             </div>
@@ -58,7 +58,7 @@ export const ProfileModal = ({
                     onClick={() => setIsShowing(false)}
                     to="add-book"
                     className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      active ? "bg-background text-text" : "text-lightText",
                       "block px-4 py-2 text-sm"
                     )}
                   >
@@ -73,7 +73,7 @@ export const ProfileModal = ({
                   <a
                     href="#"
                     className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                      active ? "bg-background text-text" : "text-lightText",
                       "block px-4 py-2 text-sm"
                     )}
                   >
@@ -94,7 +94,7 @@ export const ProfileModal = ({
                         setIsShowing(false);
                       }}
                       className={classNames(
-                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        active ? "bg-gray-100 text-text" : "text-lightText",
                         "block w-full px-4 py-2 text-left text-sm"
                       )}
                     >

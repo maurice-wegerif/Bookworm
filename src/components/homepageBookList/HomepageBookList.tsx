@@ -11,7 +11,7 @@ interface HomepageBookListProps {
 export const HomepageBookList = ({ books, heading }: HomepageBookListProps) => {
   return (
     <div className="mb-8">
-      <h2 className=" leading-tight text-3xl text-gray-900 font-medium mt-0 mb-2 pt-6 font-serif">
+      <h2 className=" leading-tight text-3xl text-text font-medium mt-0 mb-2 pt-6 font-serif">
         {heading}
       </h2>
       <hr className="h-px mt-2 mb-4 bg-gray-300 border-0" />
@@ -20,10 +20,10 @@ export const HomepageBookList = ({ books, heading }: HomepageBookListProps) => {
           <Link
             to={`/book/${book.id}`}
             key={book.id}
-            className="flex-none bg-white w-64  grid grid-cols-1 p-4 shadow rounded transition-all hover:scale-105 cursor-pointer m-auto"
+            className="flex-none w-64 grid grid-cols-1 p-4 shadow rounded m-auto bg-background hover:bg-secondaryBackground transition-all"
           >
-            <h2 className="font-serif font-bold">{book.title}</h2>
-            <span className="font-extralight text-gray-500 text-sm">
+            <h2 className="font-serif font-bold text-text">{book.title}</h2>
+            <span className="font-extralight text-lightText text-sm mb-2">
               {book.author}
             </span>
             <img

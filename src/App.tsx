@@ -11,6 +11,7 @@ export const App = () => {
   const [genres, setGenres] = useState<string[]>([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [darkmode, setDarkmode] = useState(false);
   const setBookData = (books: Book[]) => setBooks(books);
   const setIsAdminData = (admin: boolean) => setIsAdmin(admin);
 
@@ -28,6 +29,11 @@ export const App = () => {
 
   useEffect(() => {
     fetchPost();
+    const localTheme = window.localStorage.getItem("theme");
+    localTheme && setDarkmode(localTheme == "dark");
+    if (localTheme == "dark") {
+      document.body.style.backgroundColor = "#171717";
+    }
   }, []);
 
   useEffect(() => {
@@ -58,6 +64,8 @@ export const App = () => {
         isLoading,
         isAdmin,
         setIsAdmin: setIsAdminData,
+        darkmode: darkmode,
+        setDarkmode: setDarkmode,
         genres: genres,
         setGenres: setGenres,
       }}

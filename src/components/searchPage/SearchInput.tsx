@@ -14,12 +14,11 @@ export const SearchInput = ({
   setSearchInput,
 }: SearchInputProps) => (
   <div>
-    <h1>Search for a book, author or genre</h1>
     <form className="flex w-95/100 relative center">
       <input
         type="text"
         placeholder="Find your next read 🐛"
-        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+        className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-lightText bg-background text-text shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
         value={searchInput}
         onChange={(evt) => {
           setError("");
