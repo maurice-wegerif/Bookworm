@@ -21,6 +21,7 @@ export const AddBookForm = () => {
         author: author,
         imageUrl: cover,
         genres: genres.split("/"),
+        reviews: [],
       });
       navigate("/");
     } else {
