@@ -23,7 +23,7 @@ export const ReviewForm = () => {
 
   const clickHandler = async () => {
     let doubleReview: boolean = false;
-    if (auth.currentUser?.uid && book) {
+    if (auth.currentUser?.uid && auth.currentUser?.email && book) {
       //Check for already made review from user
       book.reviews?.forEach(function (review) {
         if (review.userID === auth.currentUser?.uid) {
@@ -38,6 +38,7 @@ export const ReviewForm = () => {
           userID: auth.currentUser.uid,
           rating: ratingValue,
           comment: commentInput,
+          userName: auth.currentUser.email,
         };
 
         //Add review to books review array and update firebase
@@ -46,6 +47,16 @@ export const ReviewForm = () => {
         await updateDoc(doc(db, "books", book.id), {
           reviews: book.reviews,
         });
+
+        let ratingSum: number = 0;
+        for (
+          let reviewIndex = 0;
+          reviewIndex < book.reviews.length;
+          reviewIndex++
+        ) {
+          ratingSum += book.reviews[reviewIndex].rating;
+        }
+        book.averageRating = ratingSum / book.reviews.length;
 
         navigate("/");
       }
