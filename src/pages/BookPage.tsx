@@ -10,9 +10,6 @@ export const BookPage = () => {
 
   const book = books.find((book) => book.id === params.id!);
 
-  console.log(book);
-  console.log(params.id);
-
   if (book) {
     return <BookDetails book={book} />;
   } else if (isLoading) {
