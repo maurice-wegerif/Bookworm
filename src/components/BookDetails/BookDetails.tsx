@@ -55,10 +55,17 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
         <div className="basis-5/12">
           <img className="object-fill h-373 w-96" src={book.imageUrl} />
           <div className="py-6">
-            <Button label="Give review" clickHandler={clickHandler1} />
             <div className="py-2"></div>
             {auth.currentUser !== null ? (
-              <Button label="Add to favorites" clickHandler={clickHandler2} />
+              <div>
+                <div className="pb-5">
+                  <Button
+                    label="Add to favorites"
+                    clickHandler={clickHandler2}
+                  />
+                </div>
+                <Button label="Give review" clickHandler={clickHandler1} />
+              </div>
             ) : (
               <></>
             )}
