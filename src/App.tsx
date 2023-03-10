@@ -4,15 +4,18 @@ import { RouterProvider } from "react-router-dom";
 import { db } from "./firebase";
 import { DataContext } from "./helpers/DataContext";
 import { Book } from "./helpers/types";
+import { UserLists } from "./helpers/types";
 import { router } from "./routes";
 
 export const App = () => {
   const [books, setBooks] = useState<Book[]>([]);
+  const [userLists, setUserLists] = useState<UserLists[]>([]);
   const [genres, setGenres] = useState<string[]>([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [darkmode, setDarkmode] = useState(false);
   const setBookData = (books: Book[]) => setBooks(books);
+  const setUserListData = (userLists: UserLists[]) => setUserLists(userLists);
   const setIsAdminData = (admin: boolean) => setIsAdmin(admin);
 
   const fetchPost = async () => {
@@ -23,6 +26,13 @@ export const App = () => {
         id: doc.id,
       })) as Book[];
       setBooks(bookData);
+    });
+    await getDocs(collection(db, "userLists")).then((querySnapshot) => {
+      const userListsData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      })) as UserLists[];
+      setUserLists(userListsData);
     });
     setIsLoading(false);
   };
@@ -68,6 +78,7 @@ export const App = () => {
         setDarkmode: setDarkmode,
         genres: genres,
         setGenres: setGenres,
+        userLists,
       }}
     >
       <RouterProvider router={router} />

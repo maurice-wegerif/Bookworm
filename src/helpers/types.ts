@@ -13,3 +13,9 @@ export interface Book {
   reviews?: Review[];
   date?: Date;
 }
+
+export interface UserLists {
+  id: string;
+  userID: string;
+  favorites: Book[];
+}

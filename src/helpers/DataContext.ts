@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Book } from "./types";
+import { Book, UserLists } from "./types";
 
 interface State {
   books: Book[];
@@ -9,6 +9,7 @@ interface State {
   isLoading: boolean;
   isAdmin: boolean;
   setIsAdmin: (admin: boolean) => void;
+  userLists: UserLists[];
   darkmode: boolean;
   setDarkmode: (darkmode: boolean) => void;
 }
@@ -21,6 +22,7 @@ const rootState: State = {
   isLoading: false,
   isAdmin: false,
   setIsAdmin: () => {},
+  userLists: [],
   darkmode: false,
   setDarkmode: () => {}
 };

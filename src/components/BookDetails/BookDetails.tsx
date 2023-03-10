@@ -1,5 +1,9 @@
+import { doc, getFirestore, updateDoc } from "firebase/firestore/lite";
+import { Context, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Book } from "../../helpers/types";
+import { auth } from "../../firebase";
+import { DataContext } from "../../helpers/DataContext";
+import { Book, UserLists } from "../../helpers/types";
 import { Button } from "../button";
 import { BottomRating } from "./BottomRating";
 import { FeaturedRating } from "./FeaturedRating";
@@ -10,8 +14,38 @@ interface BookDetailsProps {
 
 export const BookDetails = ({ book }: BookDetailsProps) => {
   const navigate = useNavigate();
-  const clickHandler = async () => {
+  const { userLists } = useContext(DataContext);
+
+  const clickHandler1 = async () => {
     navigate(`/book/${book.id}/review`);
+  };
+
+  const clickHandler2 = async () => {
+    userLists.map(async (user) => {
+      if (user.userID === auth.currentUser?.uid) {
+        if (validate(user.favorites)) {
+          user.favorites.push(book);
+          const db = getFirestore();
+          await updateDoc(doc(db, "userLists", user.id), {
+            favorites: user.favorites,
+          });
+          console.log("Successfully added book to favorites");
+        } else {
+          console.log("Allerede en favoritt");
+        }
+      }
+    });
+    navigate("/");
+  };
+
+  const validate = (favoriteBooks: Book[]) => {
+    let safe: boolean = true;
+    favoriteBooks.map((favorite) => {
+      if (favorite.id === book.id) {
+        safe = false;
+      }
+    });
+    return safe;
   };
 
   return (
@@ -20,7 +54,13 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
         <div className="basis-5/12">
           <img className="object-fill h-373 w-96" src={book.imageUrl} />
           <div className="py-6">
-            <Button label="Give review" clickHandler={clickHandler} />
+            <Button label="Give review" clickHandler={clickHandler1} />
+            <div className="py-2"></div>
+            {auth.currentUser !== null ? (
+              <Button label="Add to favorites" clickHandler={clickHandler2} />
+            ) : (
+              <></>
+            )}
           </div>
         </div>
         <div className="basis-7/12 px-10 py-4">
