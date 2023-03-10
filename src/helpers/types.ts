@@ -2,6 +2,7 @@ export interface Review {
   userID: string;
   rating: number;
   comment: string;
+  userName: string;
 }
 
 export interface Book {
@@ -10,6 +11,7 @@ export interface Book {
   author: string;
   imageUrl: string;
   genres: string[];
-  reviews?: Review[];
+  reviews: Review[];
+  averageRating: number;
   date?: Date;
 }

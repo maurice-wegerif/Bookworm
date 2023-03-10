@@ -3,6 +3,7 @@ import { Book } from "../../helpers/types";
 import { Button } from "../button";
 import { BottomRating } from "./BottomRating";
 import { FeaturedRating } from "./FeaturedRating";
+import { ReviewList } from "./ReviewList";
 
 interface BookDetailsProps {
   book: Book;
@@ -22,6 +23,8 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
           <div className="py-6">
             <Button label="Give review" clickHandler={clickHandler} />
           </div>
+          <p className="text-2xl p-0 m-0">Reviews</p>
+          <ReviewList book={book} />
         </div>
         <div className="basis-7/12 px-10 py-4">
           <div className="basis-10/12 text-6xl text-center text-text">
@@ -62,7 +65,10 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
 
           <div className="flex flex-row py-2">
             <BottomRating topText="Professional ratings:" rating="5.7/6" />
-            <BottomRating topText="Reader ratings:" rating="5.9/6" />
+            <BottomRating
+              topText="Reader ratings:"
+              rating={book.averageRating + ""}
+            />
           </div>
         </div>
       </div>

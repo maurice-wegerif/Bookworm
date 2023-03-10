@@ -12,6 +12,7 @@ export const App = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [darkmode, setDarkmode] = useState(false);
+  const [averageRating, setAverageRating] = useState(0);
   const setBookData = (books: Book[]) => setBooks(books);
   const setIsAdminData = (admin: boolean) => setIsAdmin(admin);
 
@@ -38,6 +39,7 @@ export const App = () => {
 
   useEffect(() => {
     getAndSetGenres();
+    getAndSetAverageRating();
   }, [books]);
 
   const getAndSetGenres = () => {
@@ -54,6 +56,26 @@ export const App = () => {
       }
     }
     setGenres(genresArray);
+  };
+
+  const getAndSetAverageRating = () => {
+    for (let bookIndex = 0; bookIndex < books.length; bookIndex++) {
+      books[bookIndex].averageRating = 0;
+      if (books[bookIndex].reviews.length === 0) {
+        setAverageRating(0);
+      } else {
+        let ratingSum: number = 0;
+        for (
+          let reviewIndex = 0;
+          reviewIndex < books[bookIndex].reviews.length;
+          reviewIndex++
+        ) {
+          ratingSum += books[bookIndex].reviews[reviewIndex].rating;
+        }
+        books[bookIndex].averageRating =
+          ratingSum / books[bookIndex].reviews.length;
+      }
+    }
   };
 
   return (
