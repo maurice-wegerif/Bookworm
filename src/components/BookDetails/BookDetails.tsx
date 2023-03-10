@@ -21,6 +21,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
     navigate(`/book/${book.id}/review`);
   };
 
+  const genresString: string = book.genres.join(" - ");
   const clickHandler2 = async () => {
     userLists.map(async (user) => {
       if (user.userID === auth.currentUser?.uid) {
@@ -95,18 +96,11 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
           </div>
 
           <div className="flex flex-row py-2">
-            <div className="basis-full text-base p-4 font-thin text-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum sit amet dolor ultricies, viverra elit ut, condimentum
-              odio. Mauris pretium congue ante a tempus. In convallis dignissim
-              neque, sit amet dapibus lacus volutpat eget. Nulla mattis
-              ultricies efficitur. Fusce odio orci, rhoncus blandit viverra id,
-              sagittis sed nibh. Sed molestie vehicula tincidunt. Maecenas
-              tempus, dui at placerat facilisis, nunc dui fringilla diam,
-              sollicitudin dictum mauris quam vitae odio. Cras blandit tincidunt
-              nisl vel elementum. Maecenas aliquam eros quis lobortis volutpat.
-              Nam ac laoreet lorem, in consectetur lorem.
-              <div className="basis-1/2 text-sm italic pt-4">Fantasy</div>
+            <div className="basis-full text-base p-4 font-thin">
+              {book.description}
+              <div className="basis-1/2 text-sm italic pt-4">
+                {genresString}
+              </div>{" "}
             </div>
           </div>
 

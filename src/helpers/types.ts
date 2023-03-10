@@ -14,6 +14,8 @@ export interface Book {
   reviews: Review[];
   averageRating: number;
   date?: Date;
+  description?: String;
+  year?: number;
 }
 
 export interface UserLists {
