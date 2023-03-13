@@ -5,10 +5,7 @@ export interface Review {
   userName: string;
 }
 
-import { ReactNode } from "react";
-
 export interface Book {
-  description: ReactNode;
   id: string;
   title: string;
   author: string;
