@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   Route,
 } from "react-router-dom";
+import { DisplayFavorites } from "./components/displayFavorites";
 import { ReviewForm } from "./components/reviewForm";
 import { SearchPage } from "./components/searchPage";
 import { TopTen } from "./components/topTen";
@@ -18,6 +19,7 @@ export const router = createBrowserRouter(
       <Route path="/register" element={<Register />} />
       <Route path="/add-book" element={<AddBook />} />
       <Route path="/search" element={<SearchPage />} />
+      <Route path="/displayBooks" element={<DisplayFavorites />} />
       <Route path="/book/:id" element={<BookPage />} />
       <Route path="/book/:id/review" element={<ReviewForm />} />
       <Route path="/TopTenPage" element={<TopTen />} />

@@ -11,7 +11,7 @@ interface HomepageBookListProps {
 export const HomepageBookList = ({ books, heading }: HomepageBookListProps) => {
   return (
     <div className="mb-8">
-      <h2 className=" leading-tight text-3xl text-text font-medium mt-0 mb-2 pt-6 font-serif">
+      <h2 className="leading-tight text-3xl text-text font-medium mt-0 mb-2 pt-6 font-serif">
         {heading}
       </h2>
       <hr className="h-px mt-2 mb-4 bg-gray-300 border-0" />

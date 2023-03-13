@@ -15,7 +15,7 @@ module.exports = {
         text: "#262626",
         lightText: "#737373",
         background: "#F9FAFB",
-        secondaryBackground: "#F7FAFC",
+        secondaryBackground: "#EDEDED",
         cta: "#4338CA",
         ctaHover: "#3730A3",
         ctaText: "white",
