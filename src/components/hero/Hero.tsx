@@ -13,19 +13,16 @@ export const Hero = () => {
 
   return (
     <div className="bg-surface py-24 px-6 sm:py-6 lg:px-8">
-      <HomepageBookList heading="Best from fantasy" books={fantasyBooks} />
-      <HomepageBookList heading="Best from fiction" books={fictionBooks} />
-      <HomepageBookList heading="Best from roman" books={romanBooks} />
-        <div className="flex items-center justify-between">
-          <Link to="/TopTenPage" className="text-4xl font-serif text-text">
-            Top 10
-          </Link>
-        </div>
+      <div className="flex items-center justify-between">
+        <Link to="/TopTenPage" className="text-4xl font-serif text-text">
+          Top 10
+        </Link>
+      </div>
       <div className="bg-surface py-24 px-6 sm:py-6 lg:px-8">
         <HomepageBookList heading="Best from fantasy" books={fantasyBooks} />
         <HomepageBookList heading="Best from fiction" books={fictionBooks} />
         <HomepageBookList heading="Best from roman" books={romanBooks} />
       </div>
     </div>
-    );
+  );
 };
