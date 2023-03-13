@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { auth } from "../../firebase";
+import { Link } from "react-router-dom";
 import { DataContext } from "../../helpers/DataContext";
 import { Book, UserLists } from "../../helpers/types";
 import { HomepageBookList } from "../homepageBookList/HomepageBookList";
@@ -22,15 +23,23 @@ export const Hero = () => {
   }
 
   return (
-    <div className="bg-surface py-24 px-6 sm:py-6 lg:px-8">
+    <div>
+        <div className="flex items-center justify-between">
+          <Link to="/TopTenPage" className="text-4xl font-serif text-text">
+            Top 10
+          </Link>
+        </div>
+      <div className="bg-surface py-24 px-6 sm:py-6 lg:px-8">
       {bookFavorites.length > 0 ? (
         <HomepageBookList heading="Favorites" books={bookFavorites} />
       ) : (
         <></>
       )}
-      <HomepageBookList heading="Best from fantasy" books={fantasyBooks} />
-      <HomepageBookList heading="Best from fiction" books={fictionBooks} />
-      <HomepageBookList heading="Best from roman" books={romanBooks} />
+        <HomepageBookList heading="Best from fantasy" books={fantasyBooks} />
+        <HomepageBookList heading="Best from fiction" books={fictionBooks} />
+        <HomepageBookList heading="Best from roman" books={romanBooks} />
+      </div>
+
     </div>
-  );
+    );
 };

@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import { ReviewForm } from "./components/reviewForm";
 import { SearchPage } from "./components/searchPage";
+import { TopTen } from "./components/topTen";
 import { PageLayout } from "./layouts/pageLayout";
 import { AddBook, Home, Login, Register } from "./pages";
 import { BookPage } from "./pages/BookPage";
@@ -19,6 +20,7 @@ export const router = createBrowserRouter(
       <Route path="/search" element={<SearchPage />} />
       <Route path="/book/:id" element={<BookPage />} />
       <Route path="/book/:id/review" element={<ReviewForm />} />
+      <Route path="/TopTenPage" element={<TopTen />} />
     </Route>
   )
 );
