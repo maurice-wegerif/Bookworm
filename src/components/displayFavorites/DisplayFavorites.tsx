@@ -55,7 +55,7 @@ export const DisplayFavorites = () => {
               />
             </Link>
             <BsTrash
-              className="hover:text-red-500"
+              className="hover:text-red-500 text-text"
               onClick={() => clickHandler(book)}
             />
           </div>
