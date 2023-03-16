@@ -57,10 +57,9 @@ export const ReviewForm = () => {
           ratingSum += book.reviews[reviewIndex].rating;
         }
         book.averageRating = ratingSum / book.reviews.length;
-
-        navigate("/");
       }
     }
+    navigate("/");
   };
 
   return (

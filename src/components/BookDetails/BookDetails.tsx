@@ -71,7 +71,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
               <></>
             )}
           </div>
-          <p className="text-2xl p-0 m-0">Reviews</p>
+          <p className="text-2xl p-0 m-0 text-text">Reviews</p>
           <ReviewList book={book} />
         </div>
         <div className="basis-7/12 px-10 py-4">
