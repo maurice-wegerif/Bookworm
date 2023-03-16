@@ -1,9 +1,9 @@
 import { Book, Review } from "../../helpers/types";
-import { BsTrash } from "react-icons/Bs";
 import { DataContext } from "../../helpers/DataContext";
 import { useContext } from "react";
 import { doc, getFirestore, updateDoc } from "firebase/firestore";
 import { auth } from "../../firebase";
+import { BsTrash } from "react-icons/bs";
 
 interface ReviewListProps {
   book: Book;
