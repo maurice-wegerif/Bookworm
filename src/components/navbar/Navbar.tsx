@@ -41,8 +41,9 @@ export const Navbar = () => {
             </Link>
           </div>
           <div className="flex items-center justify-between">
-            <Link to="/" className="text-4xl font-serif text-text">
-              Bookworm
+            <Link to="/" className="text-4xl font-serif text-text flex items-center">
+              <img src={"public/BookwormLogo.png"} alt="My Logo" className="w-7 h-10" />
+              <span className="ml-0">ookworm</span>
             </Link>
           </div>
           <div className="flex items-center justify-center">
