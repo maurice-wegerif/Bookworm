@@ -1,9 +1,11 @@
 import { createContext } from "react";
-import { Book, UserLists } from "./types";
+import { Add, Book, UserLists } from "./types";
 
 interface State {
   books: Book[];
   setBooks: (books: Book[]) => void;
+  adds: Add[];
+  setAdds: (adds: Add[]) => void;
   setGenres: (genres: string[]) => void;
   genres: string[];
   isLoading: boolean;
@@ -17,6 +19,8 @@ interface State {
 const rootState: State = {
   books: [],
   setBooks: () => {},
+  adds: [],
+  setAdds: () => {},
   genres: [],
   setGenres: () => {},
   isLoading: false,
@@ -24,7 +28,7 @@ const rootState: State = {
   setIsAdmin: () => {},
   userLists: [],
   darkmode: false,
-  setDarkmode: () => {}
+  setDarkmode: () => {},
 };
 
 export const DataContext = createContext<State>(rootState);
