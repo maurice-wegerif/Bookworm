@@ -11,7 +11,11 @@ interface HomepageBookOfDayProps {
 }
 
 export const HomepageBookOfDay = ({ book, heading }: HomepageBookOfDayProps) => {
+  const genresString: string = book.genres.join(" - ");
     return (
+      <Link
+            to={`/book/${book.id}`}
+            key={book.id}>
       <div className="mb-2 p-3 pb-3 bg-secondaryBackground rounded-md">
         <h2 className="leading-tight pl-10 text-3xl text-text font-medium mt-0 font-serif">
           {heading} {book.title}
@@ -32,21 +36,21 @@ export const HomepageBookOfDay = ({ book, heading }: HomepageBookOfDayProps) => 
               <div className="font-bold"></div>
               <div className="basis-full text-base font-thin text-text">
                 {book.description}
-                <br /><br />
-                {/* <span className="font-bold">Genres:</span>
-                {book.genres.map(genre => 
-                  <div key={genre} className="flex flex-row text-sm font-bold pt-4">{genre}</div>
-                )} */}
+                
+                <div className="basis-1/2 text-sm italic font-bold pt-4">
+                 {genresString}</div>
+                
               </div>
             </div>
 
             <div className="flex flex-row">
-              <BottomRating topText="Professional ratings:" rating="5.7/6" />
-              <BottomRating topText="Reader ratings:" rating="5.9/6" />
+              <BottomRating topText="Professional ratings:" rating="5.7" />
+              
+              <BottomRating topText="Reader ratings:" rating={book.averageRating + ""} />
             </div>
         </div>
         </div>
-      </div>
+      </div></Link>
       
     );
   };
