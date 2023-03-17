@@ -3,6 +3,7 @@ import { auth } from "../../firebase";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../helpers/DataContext";
 import { HomepageBookList } from "../homepageBookList/HomepageBookList";
+import { HomepageBookOfDay } from "../HomepageBookOfDay";
 
 export const Hero = () => {
   const { books } = useContext(DataContext);
