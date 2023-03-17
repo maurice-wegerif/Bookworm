@@ -23,3 +23,10 @@ export interface UserLists {
   userID: string;
   favorites: Book[];
 }
+
+export interface Add {
+  id: string;
+  imageUrl: string;
+  link: string;
+  name: string;
+}

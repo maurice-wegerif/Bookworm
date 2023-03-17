@@ -67,6 +67,22 @@ export const ProfileModal = ({
                 )}
               </Menu.Item>
             )}
+            {isAdmin && (
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    onClick={() => setIsShowing(false)}
+                    to="add-advertisement"
+                    className={classNames(
+                      active ? "bg-background text-text" : "text-lightText",
+                      "block px-4 py-2 text-sm"
+                    )}
+                  >
+                    Add advertisement
+                  </Link>
+                )}
+              </Menu.Item>
+            )}
             {auth.currentUser && (
               <Menu.Item>
                 {({ active }) => (

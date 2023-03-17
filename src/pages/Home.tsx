@@ -1,5 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useContext, useEffect } from "react";
+import { Advertisement } from "../components/advertisement";
 import { Hero } from "../components/hero/Hero";
 import { auth } from "../firebase";
 import { DataContext } from "../helpers/DataContext";
@@ -29,7 +30,13 @@ export const Home = () => {
 
   return (
     <main>
+      <div className="absolute top-40 left-16 w-48 overflow-y-auto">
+        <Advertisement />
+      </div>
       <Hero />
+      <div className="absolute top-40 right-16 w-48 overflow-y-auto">
+        <Advertisement />
+      </div>
     </main>
   );
 };

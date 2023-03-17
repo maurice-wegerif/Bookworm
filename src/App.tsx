@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import { db } from "./firebase";
 import { DataContext } from "./helpers/DataContext";
-import { Book } from "./helpers/types";
-import { UserLists } from "./helpers/types";
+import { UserLists, Book, Add } from "./helpers/types";
 import { router } from "./routes";
 
 export const App = () => {
+  const [adds, setAdds] = useState<Add[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
   const [userLists, setUserLists] = useState<UserLists[]>([]);
   const [genres, setGenres] = useState<string[]>([]);
@@ -16,6 +16,7 @@ export const App = () => {
   const [darkmode, setDarkmode] = useState(false);
   const [averageRating, setAverageRating] = useState(0);
   const setBookData = (books: Book[]) => setBooks(books);
+  const setAddData = (adds: Add[]) => setAdds(adds);
   const setUserListData = (userLists: UserLists[]) => setUserLists(userLists);
   const setIsAdminData = (admin: boolean) => setIsAdmin(admin);
 
@@ -35,9 +36,15 @@ export const App = () => {
       })) as UserLists[];
       setUserLists(userListsData);
     });
+    await getDocs(collection(db, "adds")).then((querySnapshot) => {
+      const addsData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      })) as Add[];
+      setAddData(addsData);
+    });
     setIsLoading(false);
   };
-
   useEffect(() => {
     fetchPost();
     const localTheme = window.localStorage.getItem("theme");
@@ -101,6 +108,8 @@ export const App = () => {
         genres: genres,
         setGenres: setGenres,
         userLists,
+        adds,
+        setAdds: setAddData,
       }}
     >
       <RouterProvider router={router} />
