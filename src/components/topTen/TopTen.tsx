@@ -5,7 +5,10 @@ import { BookListTen } from "../bookListTen/BookListTen";
 export const TopTen = () => {
   const { books } = useContext(DataContext);
 
-  const topTenbooks = books.filter((book) => book.genres.includes("fiction"));
+  const sortedBooks = books.sort((a, b) => b.averageRating - a.averageRating);
+
+  
+  const topTenbooks = sortedBooks.slice(0, 10);
 
 
   return (
