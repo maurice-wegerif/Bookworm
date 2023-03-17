@@ -108,7 +108,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
             <BottomRating topText="Professional ratings:" rating="5.7/6" />
             <BottomRating
               topText="Reader ratings:"
-              rating={book.averageRating + ""}
+              rating={book.averageRating.toFixed(1)}
             />
           </div>
         </div>
