@@ -4,12 +4,15 @@ import {
   Route,
 } from "react-router-dom";
 import { DisplayFavorites } from "./components/displayFavorites";
+import { NewsFilter } from "./components/newsFilter";
+import { RandomBooks } from "./components/randomBooks";
 import { ReviewForm } from "./components/reviewForm";
 import { SearchPage } from "./components/searchPage";
 import { TopTen } from "./components/topTen";
 import { PageLayout } from "./layouts/pageLayout";
 import { AddBook, Home, Login, Register } from "./pages";
 import { BookPage } from "./pages/BookPage";
+import { NewsPage } from "./pages/NewsPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +26,8 @@ export const router = createBrowserRouter(
       <Route path="/book/:id" element={<BookPage />} />
       <Route path="/book/:id/review" element={<ReviewForm />} />
       <Route path="/TopTenPage" element={<TopTen />} />
+      <Route path="/NewsPage" element={<NewsFilter />} />
+      <Route path="/RandomPage" element={<RandomBooks />} />
     </Route>
   )
 );
