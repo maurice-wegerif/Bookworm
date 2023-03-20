@@ -1,10 +1,10 @@
 import { doc, getFirestore, updateDoc } from "firebase/firestore/lite";
-import { Context, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
 import { DataContext } from "../../helpers/DataContext";
-import { Book, UserLists } from "../../helpers/types";
-import { Button } from "../button";
+import { Book } from "../../helpers/types";
+import { FavoriteButton, ReviewButton } from "../button";
 import { BottomRating } from "./BottomRating";
 import { FeaturedRating } from "./FeaturedRating";
 import { ReviewList } from "./ReviewList";
@@ -14,18 +14,26 @@ interface BookDetailsProps {
 }
 
 export const BookDetails = ({ book }: BookDetailsProps) => {
-  const navigate = useNavigate();
   const { userLists } = useContext(DataContext);
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const clickHandler1 = async () => {
-    navigate(`/book/${book.id}/review`);
-  };
+  useEffect(() => {
+    const userList = userLists.find(
+      (userList) => userList.userID === auth.currentUser?.uid
+    );
 
-  const genresString: string = book.genres.join(" - ");
-  const clickHandler2 = async () => {
+    if (userList) {
+      if (userList.favorites.map((favorite) => favorite.id).includes(book.id)) {
+        setIsFavorite(true);
+      }
+    }
+  }, []);
+
+  const handleFavoriteClick = async () => {
     userLists.map(async (user) => {
       if (user.userID === auth.currentUser?.uid) {
-        if (validate(user.favorites)) {
+        if (!user.favorites.map((favorite) => favorite.id).includes(book.id)) {
+          setIsFavorite(true);
           user.favorites.push(book);
           const db = getFirestore();
           await updateDoc(doc(db, "userLists", user.id), {
@@ -33,45 +41,38 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
           });
           console.log("Successfully added book to favorites");
         } else {
-          console.log("Allerede en favoritt");
+          setIsFavorite(false);
+          user.favorites = user.favorites.filter(
+            (favorite) => favorite.id !== book.id
+          );
+          const db = getFirestore();
+          await updateDoc(doc(db, "userLists", user.id), {
+            favorites: user.favorites,
+          });
+          console.log("Successfully removed book from favorites");
         }
       }
     });
-    navigate("/");
-  };
-
-  const validate = (favoriteBooks: Book[]) => {
-    let safe: boolean = true;
-    favoriteBooks.map((favorite) => {
-      if (favorite.id === book.id) {
-        safe = false;
-      }
-    });
-    return safe;
   };
 
   return (
     <section className="bg-surface p-16">
       <div className="flex flex-row">
         <div className="basis-5/12">
-          <img className="object-fill h-373 w-96" src={book.imageUrl} />
+          <img className="object-fill max-w-xs" src={book.imageUrl} />
           <div className="py-6">
-            <div className="py-2"></div>
-            {auth.currentUser !== null ? (
-              <div>
-                <div className="pb-5">
-                  <Button
-                    label="Add to favorites"
-                    clickHandler={clickHandler2}
-                  />
-                </div>
-                <Button label="Give review" clickHandler={clickHandler1} />
+            {auth.currentUser !== null && (
+              <div className="flex gap-3">
+                <FavoriteButton
+                  isFavorite={isFavorite}
+                  handleClick={handleFavoriteClick}
+                />
+                <Link to={`/book/${book.id}/review`}>
+                  <ReviewButton />
+                </Link>
               </div>
-            ) : (
-              <></>
             )}
           </div>
-          <p className="text-2xl p-0 m-0 text-text">Reviews</p>
           <ReviewList book={book} />
         </div>
         <div className="basis-7/12 px-10 py-4">
@@ -96,11 +97,11 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
           </div>
 
           <div className="flex flex-row py-2">
-            <div className="basis-full text-base p-4 font-thin">
+            <div className="basis-full text-base text-lightText p-4 font-thin">
               {book.description}
               <div className="basis-1/2 text-sm italic pt-4">
-                {genresString}
-              </div>{" "}
+                {book.genres.join(", ")}
+              </div>
             </div>
           </div>
 
@@ -108,7 +109,11 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
             <BottomRating topText="Professional ratings:" rating="5.7/6" />
             <BottomRating
               topText="Reader ratings:"
-              rating={book.averageRating.toFixed(1)}
+              rating={
+                book.averageRating
+                  ? book.averageRating.toFixed(1).toString()
+                  : "0.0"
+              }
             />
           </div>
         </div>

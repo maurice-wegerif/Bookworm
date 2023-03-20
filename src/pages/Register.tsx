@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
 export const Register = () => {
-  const navigate = useNavigate();
-
   const [input, setInput] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
 
   const handleRegisterClick = async () => {
     await createUserWithEmailAndPassword(auth, input.email, input.password)

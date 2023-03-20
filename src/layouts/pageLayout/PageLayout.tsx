@@ -8,7 +8,11 @@ export const PageLayout = () => {
   const { darkmode } = useContext(DataContext);
 
   return (
-    <main className={`${darkmode ? "theme-dark" : "theme-light"} bg-background transition-colors`}>
+    <main
+      className={`${
+        darkmode ? "theme-dark" : "theme-light"
+      } bg-background transition-colors`}
+    >
       <ScrollRestoration />
       <Navbar />
       <section className="w-full max-w-5xl m-auto mt-8 mb-auto">

@@ -1,5 +1,3 @@
-import { useContext, useEffect, useState } from "react";
-import { DataContext } from "../../helpers/DataContext";
 import { Link } from "react-router-dom";
 import { Book } from "../../helpers/types";
 
@@ -24,16 +22,26 @@ export const BookListRandom = ({ books, heading }: BookListRandomProps) => {
               index === 0 ? "col-span-3 w-full overflow-hidden" : ""
             }`}
           >
-            <div className={`flex flex-col justify-start ${index === 0 ? "pr-4" : ""}`}>
+            <div
+              className={`flex flex-col justify-start ${
+                index === 0 ? "pr-4" : ""
+              }`}
+            >
               <h2 className="font-serif font-bold text-text mb-2">{`${book.title}`}</h2>
-              <span className="font-extralight text-lightText text-sm mb-2">{book.author}</span>
+              <span className="font-extralight text-lightText text-sm mb-2">
+                {book.author}
+              </span>
               {index === 0 && (
-                <p className="font-light text-lightText text-sm">{book.description}</p>
+                <p className="font-light text-lightText text-sm">
+                  {book.description}
+                </p>
               )}
             </div>
             <div
               className={`mx-auto ${
-                index === 0 ? "h-full w-full object-cover" : "h-32 w-auto object-contain"
+                index === 0
+                  ? "h-full w-full object-cover"
+                  : "h-32 w-auto object-contain"
               }`}
               style={{
                 maxWidth: index === 0 ? "50%" : "none",
@@ -44,7 +52,9 @@ export const BookListRandom = ({ books, heading }: BookListRandomProps) => {
                 src={book.imageUrl}
                 alt={book.title}
                 className={`${
-                  index === 0 ? "h-full w-full object-cover" : "h-32 w-auto object-contain"
+                  index === 0
+                    ? "h-full w-full object-cover"
+                    : "h-32 w-auto object-contain"
                 }`}
               />
             </div>

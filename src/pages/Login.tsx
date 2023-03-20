@@ -8,8 +8,8 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    signInWithEmailAndPassword(auth, input.email, input.password).then(
-      (response) => navigate("/")
+    signInWithEmailAndPassword(auth, input.email, input.password).then(() =>
+      navigate("/")
     );
   };
 

@@ -1,5 +1,3 @@
 import { RandomBooks } from "../components/randomBooks";
 
-export const RandomPage = () => {
-  return <RandomBooks />;
-};
+export const RandomPage = () => <RandomBooks />;
