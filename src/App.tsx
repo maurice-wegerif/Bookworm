@@ -14,10 +14,8 @@ export const App = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [darkmode, setDarkmode] = useState(false);
-  const [averageRating, setAverageRating] = useState(0);
   const setBookData = (books: Book[]) => setBooks(books);
   const setAddData = (adds: Add[]) => setAdds(adds);
-  const setUserListData = (userLists: UserLists[]) => setUserLists(userLists);
   const setIsAdminData = (admin: boolean) => setIsAdmin(admin);
 
   const fetchPost = async () => {
@@ -79,7 +77,7 @@ export const App = () => {
     for (let bookIndex = 0; bookIndex < books.length; bookIndex++) {
       books[bookIndex].averageRating = 0;
       if (books[bookIndex].reviews.length === 0) {
-        setAverageRating(0);
+        books[bookIndex].averageRating = 0;
       } else {
         let ratingSum: number = 0;
         for (

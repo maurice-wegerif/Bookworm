@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { DataContext } from "../../helpers/DataContext";
 import { Link } from "react-router-dom";
 import { Book } from "../../helpers/types";
@@ -55,7 +55,7 @@ export const DisplayFavorites = () => {
               />
             </Link>
             <BsTrash
-              className="hover:text-red-500 text-text"
+              className="hover:text-red-500 text-text cursor-pointer"
               onClick={() => clickHandler(book)}
             />
           </div>

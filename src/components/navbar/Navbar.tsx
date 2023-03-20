@@ -5,6 +5,7 @@ import { RxMagnifyingGlass, RxMoon, RxSun } from "react-icons/rx";
 import { useContext } from "react";
 import { DataContext } from "../../helpers/DataContext";
 import { ProfileModal } from "./ProfileModal";
+import { NavItem } from "./NavItem";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -35,27 +36,15 @@ export const Navbar = () => {
     <div className="h-full flex flex-col justify-between">
       <nav className="divide-y-2 divide-gray-50 bg-surface shadow ring-1 ring-black ring-opacity-5 relative">
         <div className="px-5 pt-5 pb-6">
-          <div className="absolute right-1/3 left-1/3 flex justify-center items-center">
-            <Link to="/" className="font-serif text-5xl text-text hidden">
-              Bookworm
-            </Link>
-          </div>
-          <div className="flex items-center justify-between">
-            <Link to="/" className="text-4xl font-serif text-text">
-              Bookworm
-            </Link>
-          </div>
-          <div className="flex items-center justify-center">
-            <div className="flex justify-center">
-              <Link to="/TopTenPage" className="text-2xl font-serif text-text hover:text-primary">
-                Top 10
+          <div className="flex">
+            <div className="flex gap-8">
+              <Link to="/" className="text-xl mr-4 text-text">
+                Bookworm
               </Link>
-              <Link to="/NewsPage" className="text-2xl font-serif text-text ml-24 hover:text-primary">
-                New Books
-              </Link>
-              <Link to="/RandomPage" className="text-2xl font-serif text-text ml-24 hover:text-primary">
-                Explore
-              </Link>
+              <NavItem label="Home" path="/" />
+              <NavItem label="Top" path="/top" />
+              <NavItem label="New" path="/new" />
+              <NavItem label="Explore" path="/explore" />
             </div>
           </div>
           <div className="absolute top-5 right-5 flex">

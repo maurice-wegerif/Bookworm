@@ -25,7 +25,7 @@ export const ReviewForm = () => {
     let doubleReview: boolean = false;
     if (auth.currentUser?.uid && auth.currentUser?.email && book) {
       //Check for already made review from user
-      book.reviews?.forEach(function (review) {
+      book.reviews?.forEach((review) => {
         if (review.userID === auth.currentUser?.uid) {
           setError("Can not review book twice!😡");
           doubleReview = true;
@@ -48,7 +48,7 @@ export const ReviewForm = () => {
           reviews: book.reviews,
         });
 
-        let ratingSum: number = 0;
+        let ratingSum = 0;
         for (
           let reviewIndex = 0;
           reviewIndex < book.reviews.length;
@@ -57,9 +57,9 @@ export const ReviewForm = () => {
           ratingSum += book.reviews[reviewIndex].rating;
         }
         book.averageRating = ratingSum / book.reviews.length;
+        navigate(`/book/${book.id}`);
       }
     }
-    navigate("/");
   };
 
   return (
@@ -77,7 +77,7 @@ export const ReviewForm = () => {
         </div>
       </div>
       <div className="w-[320px]">
-        <p>Give this book a rating:</p>
+        <p className="text-text">Give this book a rating:</p>
         <Slider
           value={ratingValue}
           aria-label="Rating"

@@ -1,5 +1,3 @@
 import { AddAdvertisementForm } from "../components/addAdvertisementForm";
 
-export const AddAdvertisement = () => {
-  return <AddAdvertisementForm />;
-};
+export const AddAdvertisement = () => <AddAdvertisementForm />;

@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { DataContext } from "../../helpers/DataContext";
 
 interface GenreInputProps {
