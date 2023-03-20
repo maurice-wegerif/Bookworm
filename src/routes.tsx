@@ -4,6 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import { DisplayFavorites } from "./components/displayFavorites";
+import { Information } from "./components/information/Information";
 import { NewsFilter } from "./components/newsFilter";
 import { RandomBooks } from "./components/randomBooks";
 import { ReviewForm } from "./components/reviewForm";
@@ -28,6 +29,7 @@ export const router = createBrowserRouter(
       <Route path="/new" element={<NewsFilter />} />
       <Route path="/explore" element={<RandomBooks />} />
       <Route path="/top" element={<TopTen />} />
+      <Route path="/Information" element={<Information />} />
     </Route>
   )
 );
