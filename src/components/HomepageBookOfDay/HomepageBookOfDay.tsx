@@ -34,7 +34,7 @@ export const HomepageBookOfDay = ({
             </div>
           </div>
           <div className="flex flex-row">
-            <BottomRating topText="Professional ratings:" rating="5.7" />
+            {/* <BottomRating topText="Professional ratings:" rating="5.7" /> */}
             <BottomRating
               topText="Reader ratings:"
               rating={

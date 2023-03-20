@@ -83,7 +83,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
             {book.author}
           </div>
 
-          <div className="flex flex-row py-2 pt-6">
+          {/* <div className="flex flex-row py-2 pt-6">
             <FeaturedRating
               quote='"Fantastic"'
               rating="6/6"
@@ -94,7 +94,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
               rating="6/6"
               givenBy="The Washington Post"
             />
-          </div>
+          </div> */}
 
           <div className="flex flex-row py-2">
             <div className="basis-full text-base text-lightText p-4 font-thin">
@@ -106,7 +106,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
           </div>
 
           <div className="flex flex-row py-2">
-            <BottomRating topText="Professional ratings:" rating="5.7/6" />
+            {/* <BottomRating topText="Professional ratings:" rating="5.7/6" /> */}
             <BottomRating
               topText="Reader ratings:"
               rating={
