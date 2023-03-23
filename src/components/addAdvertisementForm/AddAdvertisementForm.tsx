@@ -41,7 +41,7 @@ export const AddAdvertisementForm = () => {
 
   return (
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <h1 className="text-text text-xl mb-4">Add book</h1>
+      <h1 className="text-text text-xl mb-4">Add advertisement</h1>
       <div className="flex flex-col gap-4">
         <InputField
           placeholder="Company Name"
